@@ -1,0 +1,25 @@
+syntax = "proto3";
+package grains;
+
+option go_package = "realtimemap-go/backend/grains";
+
+message Empty {}
+
+
+message OpportunityDetails {
+    string opportunity_id = 1;
+    string name = 2;
+}
+
+
+message GetOpportunityRequest {
+    string opportunity_id = 1;
+}
+
+message GetOpportunityResponse {
+       OpportunityDetails opportunity_details = 1; 
+}
+
+service Opportunity {
+    rpc GetOpportunity(GetOpportunityRequest) returns (GetOpportunityResponse) {}
+}
